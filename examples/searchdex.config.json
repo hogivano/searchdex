@@ -1,0 +1,6 @@
+{
+  "projectId": "5f1a2b3c4d5e6f7a8b9c0d1e",
+  "clusters": ["acme-prod-eu", "acme-prod-us", "acme-prod-ap"],
+  "directory": "search-indexes",
+  "concurrency": 3
+}

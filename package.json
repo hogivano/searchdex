@@ -1,0 +1,52 @@
+{
+  "name": "searchdex",
+  "version": "0.1.0",
+  "description": "Atlas Search index definitions as JSON in your repo. Diff it, apply it, and wait until queries are actually live again.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "searchdex": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --experimental-strip-types 'test/unit/*.test.ts' 'test/integration/*.test.ts' 'test/stress/*.test.ts'",
+    "test:e2e": "SEARCHDEX_E2E=1 node --test --experimental-strip-types test/e2e/*.test.ts",
+    "prepublishOnly": "npm run build",
+    "test:coverage": "node --test --experimental-strip-types --experimental-test-coverage 'test/unit/*.test.ts' 'test/integration/*.test.ts' 'test/stress/*.test.ts'"
+  },
+  "keywords": [
+    "mongodb",
+    "atlas",
+    "atlas-search",
+    "search-index",
+    "cli",
+    "gitops",
+    "drift",
+    "ci"
+  ],
+  "dependencies": {
+    "@mongodb-js/search-index-schema": "^2.1.1",
+    "ajv": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "mongodb": "^7.6.0",
+    "typescript": "^5.9.0"
+  }
+}
